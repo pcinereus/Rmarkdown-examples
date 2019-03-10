@@ -1,0 +1,33 @@
+---
+title: "Yet another example"
+author: "D Author"
+date: "`r format(Sys.time(), '%d %B, %Y')`"
+output:
+  bookdown::html_document2:
+    toc: true
+    fig_caption: true
+    toc_float: yes
+    theme: flatly
+    self_contained: yes
+---
+
+# Introduction
+
+```{r, message=FALSE, warning=FALSE}
+library(tidyverse)
+```
+
+
+```{r tab1}
+cars %>% 
+  head %>% 
+  knitr::kable(caption='This is a table')
+```
+
+```{r fig1, fig.cap='This is the figure caption'}
+ggplot(cars, aes(y=speed, x=dist)) + geom_point()
+```
+
+We can now refer to table \@ref(tab:tab1) and figure \@ref(fig:fig1).
+
+# References
